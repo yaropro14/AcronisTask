@@ -9,7 +9,7 @@
 #include <iostream>
 #include <string>
 
-void cycle();
+int cycle();
 int div_by_3(std::string buf);
 int div_by_5(std::string buf);
 int test();
@@ -17,18 +17,29 @@ int test();
 int main(int argc, const char * argv[]) {
     
     test();
-    cycle();
     
-    return 0;
+    return cycle();
 }
 
-void cycle()
+// Function read numbers; e - means exit
+int cycle()
 {
     std::string buf;
     
     while(1) {
         std::cin >> buf;
 
+        for (int i = 0; i < buf.size(); i++) {
+            if(buf[i] != '-' && buf[i] < '0' && buf[i] > '9')  {
+                std::cout << "error" << std::endl;
+                return 1;
+            }
+        }
+        
+        if(buf.size() > 64) {
+            std::cout << "error" << std::endl;
+            return 1;
+        }
         
         if(buf[0] == 'e') break;
         
@@ -38,8 +49,11 @@ void cycle()
                     
                     else std::cout << buf << std::endl;
     }
+    
+    return 0;
 }
 
+// Function verify if a number from the buf devided by 3 ore not
 int div_by_5(std::string buf)
 {
     if(buf[buf.size() - 1] == '0' || buf[buf.size() - 1] == '5')    return 1;
@@ -48,6 +62,7 @@ int div_by_5(std::string buf)
     
 }
 
+// Function verify if a number from the buf devided by 3 ore not
 int div_by_3(std::string buf) {
     int sum = 0;
     int k = 0;
@@ -72,7 +87,7 @@ int div_by_3(std::string buf) {
         else    return 0;
 }
 
-
+// Function tests different available cases and return 0 if all correct or 1 if there are any problemes
 int test()
 {
     std::string buf = "535555555555";

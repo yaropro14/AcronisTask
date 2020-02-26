@@ -50,6 +50,7 @@ int main(int argc, const char * argv[]) {
     return 0;
 }
 
+// Function compare x and y and return the difference
 int comp(const void *x, const void *y)
 {
     int X = *(int*) x;
@@ -57,6 +58,7 @@ int comp(const void *x, const void *y)
     return X - Y;
 }
 
+// Function read n numbers ans return they in array
 int * read_nums(int n)
 {
     int * nums = (int *) std::calloc(n, sizeof(int));
@@ -68,6 +70,7 @@ int * read_nums(int n)
     return nums;
 }
 
+// Function print m numbers int the right order excludes n numbers fron array nums
 void print_nums(int n, int m, int * nums)
 {
     int i = 0;
