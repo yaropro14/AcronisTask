@@ -8,5 +8,5 @@
 - Input: array of numbers;
 - Output: fizz, buzz or number
 # Build
-chmod +x build.sh
-/bin/bash build.sh
+- chmod +x build.sh
+- /bin/bash build.sh
